@@ -7,11 +7,11 @@
   "mostPicked": [
     {
       "_id": "asd1293uasdads1",
-      "name": "Jung Hook Sie",
+      "name": "Pangandaran Beach",
       "type": "Apartment",
       "imageUrl": "/images/image-mostpicked-1.jpg",
-      "country": "South Korea",
-      "city": "Seoul Flore",
+      "country": "Indonesia",
+      "city": "Bandung",
       "price": "80",
       "unit": "night"
     },
@@ -30,28 +30,28 @@
       "name": "House Tour",
       "type": "Rumah",
       "imageUrl": "/images/image-mostpicked-3.jpg",
-      "country": "South Korea",
+      "country": "France",
       "city": "Seoul Flore",
       "price": "80",
       "unit": "night"
     },
     {
       "_id": "asd1293uasdads1",
-      "name": "Jung Hook Sie",
+      "name": "Lembang Street",
       "type": "Apartment",
       "imageUrl": "/images/image-mostpicked-4.jpg",
-      "country": "South Korea",
-      "city": "Seoul Flore",
+      "country": "Indonesia",
+      "city": "West Java",
       "price": "80",
       "unit": "night"
     },
     {
       "_id": "asd1293uasdads1",
-      "name": "Jung Hook Sie",
+      "name": "Farm House",
       "type": "Apartment",
       "imageUrl": "/images/image-mostpicked-5.jpg",
-      "country": "South Korea",
-      "city": "Seoul Flore",
+      "country": "Indonesia",
+      "city": "Bandung",
       "price": "80",
       "unit": "night"
     }
@@ -165,8 +165,8 @@
           "_id": "asd1293uasdads1",
           "name": "Grand Dhika",
           "imageUrl": "/images/image-category-12.jpg",
-          "country": "South Korea",
-          "city": "Seoul Flore",
+          "country": "Indonesia",
+          "city": "West Java",
           "isPopular": false
         }
       ]
@@ -178,7 +178,7 @@
     "name": "Happy Family",
     "rate": 4.55,
     "content": "What a great trip with my family and I should try again next time soon ...",
-    "familyName": "Angga",
-    "familyOccupation": "Product Designer"
+    "familyName": "Asep",
+    "familyOccupation": "General Manager"
   }
 }
