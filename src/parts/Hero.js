@@ -23,10 +23,12 @@ export default function Hero({data, refMostPicked}) {
       <section className="container pt-4">
         <div className="row aligns-item-center">
           <div className="col-auto pr-5" style={{ width: 530 }}>
-            <h1 className="font-weight-bold line-height-1 mb-3">
-              Forget Busy Work,<br />
-              Start Next Vacation
-            </h1>
+            <Fade top delay={500}>
+              <h1 className="font-weight-bold line-height-1 mb-3">
+                Forget Busy Work,<br />
+                Start Next Vacation
+              </h1>
+            </Fade>
             <h5
               className="mb-4 font-weight-light text-gray-500 w-75"
               style={{ lineHeight: "170%" }}
