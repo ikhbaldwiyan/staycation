@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import propTypes from "prop-types";
 
 import { DateRange } from "react-date-range";
@@ -12,7 +12,7 @@ import iconCalendar from "assets/images/icons/icon-calendar.svg";
 
 export default function Date(props) {
   const { value, placeholder, name } = props;
-  const [ isShowed, setIsShowed ] = useState(false);
+  const [isShowed, setIsShowed] = useState(false);
 
   const datePickerChange = (value) => {
     const target = {
@@ -28,7 +28,7 @@ export default function Date(props) {
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   });
 
@@ -59,24 +59,25 @@ export default function Date(props) {
           </span>
         </div>
         <input
-            readOnly
-            type="text"
-            className="form-control"
-            value={displayDate}
-            placeholder={placeholder}
-            onClick={() => setIsShowed(!isShowed)}
-          />
-          {isShowed && (
-            <div className="date-range-wrapper">
-              <DateRange
-                editableDateInputs={true}
-                onChange={datePickerChange}
-                moveRangeOnFirstSelection={false}
-                onRangeFocusChange={check}
-                ranges={[value]}
-              />
-            </div>
-          )}
+          readOnly
+          type="text"
+          className="form-control"
+          value={displayDate}
+          placeholder={placeholder}
+          onClick={() => setIsShowed(!isShowed)}
+        />
+
+        {isShowed && (
+          <div className="date-range-wrapper">
+            <DateRange
+              editableDateInputs={true}
+              onChange={datePickerChange}
+              moveRangeOnFirstSelection={false}
+              onRangeFocusChange={check}
+              ranges={[value]}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
