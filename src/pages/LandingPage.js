@@ -15,6 +15,10 @@ export default class LandingPage extends Component {
     this.refMostPicked = React.createRef();
   }
 
+  componentDidMount() {
+    document.title = 'Staycation'
+  }
+
   render() {
     return (
       <>

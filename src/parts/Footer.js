@@ -68,14 +68,14 @@ export default function Footer() {
                 </Button>
               </li>
               <li className="list-group-item">
-                <span>Staycation, Kemang, Jakarta</span>
+                <span>Staycation, Bandung</span>
               </li>
             </ul>
           </div>
         </div>
         <div className="row">
           <div className="col text-center copyrights">
-            Copyright 2019 • All rights reserved • Staycation
+            Copyright 2021 • All rights reserved • Staycation
           </div>
         </div>
       </div>
