@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import propTypes from "prop-types";
 
-export default function Text() {
+export default function Text(props) {
   const {
     value,
     type,
@@ -13,8 +14,7 @@ export default function Text() {
     errorResponse,
   } = props;
 
-  const [hasError, setHasError] = useState(null);
-
+  const [HasError, setHasError] = useState(null);
   let pattern = "";
   if (type === "email") pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (type === "tel") pattern = "[0-9]*";
@@ -28,7 +28,8 @@ export default function Text() {
     };
 
     if (type === "email") {
-      !pattern.test(event.target.value) ? setHasError(errorResponse) : setHasError(null);
+      if (!pattern.test(event.target.value)) setHasError(errorResponse);
+      else setHasError(null);
     }
 
     if (type === "tel") {
@@ -36,21 +37,19 @@ export default function Text() {
     } else {
       props.onChange(target);
     }
-  }
+  };
 
   return (
     <div className={["input-text mb-3", outerClassName].join(" ")}>
       <div className="input-group">
         {prepend && (
           <div className="input-group-prepend bg-gray-900">
-            <span className="input-group-text">
-              {prepend}
-            </span>
+            <span className="input-group-text">{prepend}</span>
           </div>
         )}
         <input
-          type={type}
           name={name}
+          type={type}
           pattern={pattern}
           className={["form-control", inputClassName].join(" ")}
           value={value}
@@ -59,16 +58,21 @@ export default function Text() {
         />
         {append && (
           <div className="input-group-append bg-gray-900">
-            <span className="input-group-text">
-              {append}
-            </span>
+            <span className="input-group-text">{append}</span>
           </div>
         )}
-        {hasError && <span className="error-helper">{hasError}</span>}
       </div>
+      {HasError && (
+        <span
+          className="error-helper"
+          style={{ color: "white", backgroundColor: "red", padding: "5px" }}
+        >
+          {HasError}
+        </span>
+      )}
     </div>
   );
-};
+}
 
 Text.defaultProps = {
   type: "text",

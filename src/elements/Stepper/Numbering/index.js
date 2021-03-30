@@ -26,7 +26,7 @@ export default function Numbering({style, className, data, current}) {
   )
 }
 
-Stepper.propTypes = {
+Numbering.propTypes = {
   data: propTypes.object.isRequired,
   initialStep: propTypes.string,
   className: propTypes.string,
