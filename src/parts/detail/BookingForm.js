@@ -84,7 +84,7 @@ export default class BookingForm extends Component {
           value={data.duration}
           isSuffixPlural
         />
-        
+
         <p className="mt-3">Pick a Date</p>
         <InputDate
           max={30}
@@ -98,7 +98,14 @@ export default class BookingForm extends Component {
             {data.duration} {itemDetail.unit}
           </b>
         </p>
-        <Button className="btn px-5 mt-3" hasShadow isPrimary isBlock>
+        <Button
+          href="/checkout"
+          type="link"
+          className="btn px-5 mt-3"
+          hasShadow
+          isPrimary
+          isBlock
+        >
           Continue Book
         </Button>
       </div>

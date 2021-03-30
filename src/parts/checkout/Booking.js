@@ -1,5 +1,6 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
+import { InputText } from "elements/Form";
 
 export default function Booking(props) {
   const { data, itemDetail, checkout } = props;
@@ -26,21 +27,56 @@ export default function Booking(props) {
                       </span>
                     </div>
                   </div>
-                </div>
-                <div className="col-auto">
-                  {/* <span>
-                    ${+checkout.duration * itemDetail.price} USD
-                    <span className="text-gray-500">
-                      {checkout.duration} {itemDetail.unit}
-                      ${+checkout.duration > 1 ? "s" : ""}
+                  <div className="col-auto">
+                    <span>
+                      ${+checkout.duration * itemDetail.price} USD {" "}
+                      <span className="text-gray-500">
+                        per {" "}
+                      </span>
+                      {checkout.duration}  {itemDetail.unit} 
+                      {+checkout.duration > 1 ? "s" : ""}
                     </span>
-                  </span> */}
+                  </div>
                 </div>
               </div>
             </Fade>
           </div>
-          <div className="col-5 py-5">
-            
+          <div className="col-5 py-5" style={{paddingLeft: 80}}>
+            <Fade delay={600}>
+              <label htmlFor="firstName">First Name</label>
+              <InputText 
+                id="firstName"
+                name="firstName"
+                value={data.firstName}
+                onChange={props.onChange}
+              />
+
+              <label htmlFor="lastName">Last Name</label>
+              <InputText 
+                id="lastName"
+                name="lastName"
+                value={data.lastName}
+                onChange={props.onChange}
+              />
+
+              <label htmlFor="email">Email Address</label>
+              <InputText
+                id="email"
+                name="email"
+                type="email"
+                value={data.email}
+                onChange={props.onChange}
+              />
+
+              <label htmlFor="phone">Phone Number</label>
+              <InputText 
+                id="phone"
+                name="phone"
+                type="tel"
+                value={data.phone}
+                onChange={props.onChange}
+              />
+            </Fade>
           </div>
         </div>
       </div>

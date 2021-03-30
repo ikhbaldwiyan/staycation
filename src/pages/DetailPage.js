@@ -12,6 +12,7 @@ import Footer from 'parts/Footer';
 export default class DetailPage extends Component {
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     document.title = 'Staycation | Detail Page'
   }
 

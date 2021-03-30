@@ -10,7 +10,7 @@ export default function PageTitle({data, breadcrumb}) {
           <div className="col">
             <Breadcrumb data={breadcrumb} />
           </div>
-          <div className="col-auto">
+          <div className="col-auto text-center">
             <h1 className="h2">{data.name}</h1>
             <span className="text-gray-400">
               {data.city}, {data.country}
