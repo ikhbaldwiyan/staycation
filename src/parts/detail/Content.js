@@ -5,7 +5,7 @@ import itemDetail from "json/itemDetails.json";
 import BookingForm from "./BookingForm";
 import Description from "./Description";
 
-export default function Content() {
+export default function Content({startBooking}) {
   return (
     <section className="container">
       <Fade bottom>
@@ -14,7 +14,7 @@ export default function Content() {
             <Description data={itemDetail} />
           </div>
           <div className="col-5">
-            <BookingForm itemDetail={itemDetail} />
+            <BookingForm itemDetail={itemDetail} startBooking={startBooking} />
           </div>
         </div>
       </Fade>

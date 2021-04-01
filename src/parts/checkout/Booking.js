@@ -1,6 +1,8 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
 import { InputText } from "elements/Form";
+import formatDate from "utils/formatDate";
+import IconDate from "assets/images/icons/icon_cities.svg";
 
 export default function Booking(props) {
   const { data, itemDetail, checkout } = props;
@@ -19,7 +21,7 @@ export default function Booking(props) {
                   />
                 </figure>
                 <div className="row align-items-center">
-                  <div className="col">
+                  <div className="col-4 mb-3">
                     <div className="meta-wrapper">
                       <h5>{itemDetail.name}</h5>
                       <span className="text-gray-500">
@@ -35,6 +37,12 @@ export default function Booking(props) {
                       </span>
                       {checkout.duration}  {itemDetail.unit} 
                       {+checkout.duration > 1 ? "s" : ""}
+                    </span>
+                  </div>
+                  <div className="col-auto">
+                    <span className="text-gray-700 mb-2 mt-2">
+                      <img src={IconDate} width={18} className="mb-1" alt="date" />{" "}
+                      {formatDate(checkout.date.startDate)} - {formatDate(checkout.date.endDate)} {"  "} 
                     </span>
                   </div>
                 </div>

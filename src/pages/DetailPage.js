@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import itemDetail from 'json/itemDetails.json';
+import { connect } from 'react-redux';
 
 import Header from 'parts/Header';
 import PageTitle from 'parts/detail/PageTitle';
@@ -9,7 +10,9 @@ import Testimoni from 'parts/Testimoni';
 import Categories from 'parts/Categories';
 import Footer from 'parts/Footer';
 
-export default class DetailPage extends Component {
+import { checkoutBooking } from 'store/actions/checkout';
+
+class DetailPage extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -27,7 +30,7 @@ export default class DetailPage extends Component {
         <Header {...this.props} />
           <PageTitle breadcrumb={breadcrumb} data={itemDetail}  />
           <FeaturedImages data={itemDetail.imageUrls} />
-          <Content />
+          <Content startBooking={this.props.checkoutBooking} />
           <Categories data={itemDetail.categories} />
           <Testimoni data={itemDetail.testimonial} />
         <Footer />
@@ -35,3 +38,5 @@ export default class DetailPage extends Component {
     )
   }
 }
+
+export default connect(null, {checkoutBooking})(DetailPage);

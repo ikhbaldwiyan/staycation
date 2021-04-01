@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import Fade from "react-reveal/Fade";
 import itemDetail from 'json/itemDetails.json';
 
@@ -15,7 +16,7 @@ import Booking from 'parts/checkout/Booking';
 import Payment from 'parts/checkout/Payment';
 import Completed from 'parts/checkout/Completed';
 
-export default class Checkout extends Component {
+class Checkout extends Component {
   state = {
     data: {
       firstName: "",
@@ -44,9 +45,7 @@ export default class Checkout extends Component {
 
   render() {
     const { data } = this.state;
-    const checkout = {
-      duration: 3
-    };
+    const checkout = this.props.checkout;
 
     const steps = {
       bookingInformation: {
@@ -174,3 +173,9 @@ export default class Checkout extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  checkout: state.checkout,
+})
+
+export default connect(mapStateToProps)(Checkout)
