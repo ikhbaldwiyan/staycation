@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Fade from "react-reveal/Fade";
-import itemDetail from 'json/itemDetails.json';
 
 import Header from 'parts/Header'
 import Button from "elements/Button";
@@ -45,7 +44,7 @@ class Checkout extends Component {
 
   render() {
     const { data } = this.state;
-    const checkout = this.props.checkout;
+    const { checkout, page } = this.props;
 
     const steps = {
       bookingInformation: {
@@ -55,7 +54,7 @@ class Checkout extends Component {
           <Booking
             data={data}
             checkout={checkout}
-            itemDetail={itemDetail}
+            itemDetail={page[checkout._id]}
             onChange={this.onChange}
           />
         ),
@@ -66,7 +65,7 @@ class Checkout extends Component {
         content: (
           <Payment
             data={data}
-            itemDetail={itemDetail}
+            itemDetail={page[checkout._id]}
             checkout={checkout}
             onChange={this.onChange}
           />
@@ -110,11 +109,10 @@ class Checkout extends Component {
                     )}
                   <Button
                     className="btn"
-                    type="link"
                     isBlock
                     isLight
                     hasShadow
-                    href={`/properties/${itemDetail._id}`}
+                    onClick={() => this.props.history.goBack()}
                   >
                     Cancel
                   </Button>
@@ -176,6 +174,7 @@ class Checkout extends Component {
 
 const mapStateToProps = (state) => ({
   checkout: state.checkout,
+  page: state.page
 })
 
 export default connect(mapStateToProps)(Checkout)

@@ -7,12 +7,12 @@ export default function Description({ data }) {
       <h4>About The Place</h4>
       {ReactHtmlParser(data.description)}
       <div className="row mt-4">
-        {data.features.map((item, idx) => (
+        {data.featureId.map((item, idx) => (
           <div className="col-3 mb-4" key={idx}>
             <img
               width="38"
               className="d-block mb-2"
-              src={item.imageUrl}
+              src={`${process.env.REACT_APP_HOST}/${item.imageUrl}`}
               alt={item.name}
             />
             <span>{item.qty}</span>{" "}

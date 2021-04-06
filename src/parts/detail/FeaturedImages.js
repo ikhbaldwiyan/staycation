@@ -15,7 +15,7 @@ export default function FeaturedImages({ data }) {
             <Fade bottom delay={300 * idx}>
               <div className="card h-100">
                 <figure className="img-wrapper">  
-                  <img className="img-cover" src={item.url} alt={item.id}/>
+                  <img className="img-cover" src={`${process.env.REACT_APP_HOST}/${item.imageUrl}`} alt={item.id}/>
                 </figure>
               </div>
             </Fade>
