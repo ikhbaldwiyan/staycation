@@ -9,6 +9,14 @@ export default function Header(props) {
     return props.location.pathname === path ? " active" : "";
   };
 
+  const isLive = (path) => {
+    return props.location.pathname === path ? "48px" : "container";
+  };
+
+  const headerLive = (path) => {
+    return props.location.pathname === path ? "48px" : "container";
+  };
+
   if (props.isCentered) {
     return (
       <Fade>
@@ -26,7 +34,7 @@ export default function Header(props) {
   return (
     <Fade>
       <header className="sapcing-sm">
-        <div className="container">
+        <div className={isLive("/live-stream")} style={{marginLeft: isLive("/live-stream"), marginRight: headerLive("/live-stream")}}>
           <nav className="navbar navbar-expand-lg navbar-light">
             <BrandIcon />
             <div className="collapse navbar-collapse">
@@ -41,9 +49,9 @@ export default function Header(props) {
                     Article
                   </Button>
                 </li>
-                <li className={`nav-item${getNavLinkClass("/stories")}`}>
-                  <Button className="nav-link" type="link" href="/stories">
-                    Stories
+                <li className={`nav-item${getNavLinkClass("/live-stream")}`}>
+                  <Button className="nav-link" type="link" href="/live-stream">
+                    Live Stream
                   </Button>
                 </li>
                 <li className={`nav-item${getNavLinkClass("/agents")}`}>
