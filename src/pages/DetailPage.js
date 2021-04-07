@@ -24,6 +24,7 @@ class DetailPage extends Component {
 
   render() {
     const { page, match } = this.props;
+    const propertiesId = match.params.id;
 
     if(!page[match.params.id]) return null;
 
@@ -35,11 +36,11 @@ class DetailPage extends Component {
     return (
       <>
         <Header {...this.props} />
-          <PageTitle breadcrumb={breadcrumb} data={page[match.params.id]} />
-          <FeaturedImages data={page[match.params.id].imageId} />
-          <Content data={page[match.params.id]} startBooking={this.props.checkoutBooking} />
-          <Activities data={page[match.params.id].activityId} />
-          <Testimoni data={page[match.params.id].testimonial} />
+          <PageTitle breadcrumb={breadcrumb} data={page[propertiesId]} />
+          <FeaturedImages data={page[propertiesId].imageId} />
+          <Content data={page[propertiesId]} startBooking={this.props.checkoutBooking} />
+          <Activities data={page[propertiesId].activityId} />
+          <Testimoni data={page[propertiesId].testimonial} />
         <Footer />
       </>
     );

@@ -5,7 +5,7 @@ import formatDate from "utils/formatDate";
 import IconDate from "assets/images/icons/icon_cities.svg";
 
 export default function Booking(props) {
-  const { data, itemDetail, checkout } = props;
+  const { data, itemDetail, checkout, onChange } = props;
   return (
     <Fade>
       <div className="contaier mb-3">
@@ -56,7 +56,7 @@ export default function Booking(props) {
                 id="firstName"
                 name="firstName"
                 value={data.firstName}
-                onChange={props.onChange}
+                onChange={onChange}
               />
 
               <label htmlFor="lastName">Last Name</label>
@@ -64,7 +64,7 @@ export default function Booking(props) {
                 id="lastName"
                 name="lastName"
                 value={data.lastName}
-                onChange={props.onChange}
+                onChange={onChange}
               />
 
               <label htmlFor="email">Email Address</label>
@@ -73,7 +73,7 @@ export default function Booking(props) {
                 name="email"
                 type="email"
                 value={data.email}
-                onChange={props.onChange}
+                onChange={onChange}
               />
 
               <label htmlFor="phone">Phone Number</label>
@@ -82,7 +82,7 @@ export default function Booking(props) {
                 name="phone"
                 type="tel"
                 value={data.phone}
-                onChange={props.onChange}
+                onChange={onChange}
               />
             </Fade>
           </div>
