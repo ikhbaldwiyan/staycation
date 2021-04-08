@@ -9,7 +9,7 @@ export default function IconText() {
       </Button>
     ) : (
       <Button className="brand-text-icon" href="" type="link">
-        JKT48<span className="text-gray-900">STREAM.</span>
+        JKT48<span className="text-gray-900">SHOWROOM.</span>
       </Button>
     )
   )
