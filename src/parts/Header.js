@@ -26,7 +26,7 @@ export default function Header(props) {
   return (
     <Fade>
       <header className="sapcing-sm">
-        <div className="container" style={{marginLeft: "88px"}}>
+        <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light">
             <BrandIcon />
             <div className="collapse navbar-collapse">
