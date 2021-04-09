@@ -6,16 +6,18 @@ export default function MostPicked({data, refMostPicked}) {
   return (
     <section className="container" ref={refMostPicked}>
       <Fade bottom>
-        <h4 className="mb-3">Most Picked</h4>
+        <div className="item column-12 mb-3">
+          <img
+            width="200"
+            src="https://image.showroom-cdn.com/showroom-prod/image/top_slider/0f2072404986edd4f5883e76c7a45a84.png"
+            className="img-cover"
+          />
+        </div>
         <div className="container-grid">
           {data.map((item, idx) => (
-            <div key={idx} className={`item column-4 ${idx === 0 ? "row-2" : "row-1"}`}>
+            <div key={idx} className={`item ${idx === 0 ? "column-12 row-1" : "column-12 row-1"}`}>
               <Fade bottom delay={500 * idx}>
                 <div className="card card-featured">
-                  <div className="tag">
-                    ${item.price} 
-                    <span className="font-weight-light"> / per {item.unit}</span>
-                  </div>
                   <figure className="img-wrapper">
                     <img
                       src={item.imageUrl}
@@ -27,13 +29,10 @@ export default function MostPicked({data, refMostPicked}) {
                     <Button
                       type="link"
                       className="strecthed-link d-block text-white"
-                      href={`properties/${item._id}`}
+                      href={`live-stream`}
                     >
                       <h5>{item.name}</h5>
                     </Button>
-                    <span>
-                      {item.city}, {item.country}
-                    </span>
                   </div>
                 </div>
               </Fade>

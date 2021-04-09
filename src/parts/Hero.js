@@ -1,8 +1,7 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
 
-import imgHero from 'assets/images/img-hero.jpg';
-import imgHeroFrame from 'assets/images/img-hero-frame.jpg';
+import imgHero from 'assets/images/stream.png';
 import iconCities from 'assets/images/icons/icon_cities.svg';
 import iconTraveler from 'assets/images/icons/icon_traveler.svg';
 import iconTreasure from 'assets/images/icons/icon_treasure.svg';
@@ -69,19 +68,14 @@ export default function Hero({data, refMostPicked}) {
             </div>
           </div>
           
-          <div className="col-6 pl-5 mt-4">
+          <div className="col-6 pl-5 mt-2">
             <div style={{ width: 540, height: 410 }}>
               <img
+                width="500"
                 src={imgHero}
                 alt="Hero"
                 className="img-fluid position-absolute"
                 style={{ margin: "-30px 0 0 -30px", zIndex: 1 }}
-              />
-              <img
-                src={imgHeroFrame}
-                alt="Hero"
-                className="img-fluid position-absolute"
-                style={{ margin: "0 -15px -15px 0" }}
               />
             </div>
           </div>

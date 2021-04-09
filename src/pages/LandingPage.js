@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Header from 'parts/Header'
+import Header from 'pages/jeketi/Header';
 import Hero from 'parts/Hero'
 import MostPicked from 'parts/MostPicked'
 import Categories from 'parts/Categories'
@@ -23,10 +23,10 @@ export default class LandingPage extends Component {
     return (
       <>
         <Header {...this.props} />
-          <Hero refMostPicked={this.refMostPicked} data={landingPage.hero} />
+          {/* <Hero refMostPicked={this.refMostPicked} data={landingPage.hero} /> */}
           <MostPicked refMostPicked={this.refMostPicked} data={landingPage.mostPicked} />
-          <Categories data={landingPage.categories} />
-          <Testimoni data={landingPage.testimonial} />
+          {/* <Categories data={landingPage.categories} /> */}
+          {/* <Testimoni data={landingPage.testimonial} /> */}
         <Footer />
       </>
     )
