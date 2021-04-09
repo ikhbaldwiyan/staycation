@@ -8,6 +8,7 @@ import Checkout from 'pages/Checkout';
 import Example from 'pages/Example';
 import Article from 'pages/Article';
 import Live from 'pages/streaming/Live';
+import ListRoom from 'pages/jeketi/ListRoom';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/article" component={Article} />
         <Route path="/example" component={Example} />
         <Route path="/live-stream" component={Live} />
+        <Route path="/list-room" component={ListRoom} />
       </Router>
     </div>
   );
