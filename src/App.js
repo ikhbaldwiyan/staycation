@@ -1,6 +1,6 @@
 import React from 'react';
 import 'assets/scss/style.scss';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import LandingPage from 'pages/LandingPage';
 import DetailPage from 'pages/DetailPage';
@@ -19,7 +19,7 @@ function App() {
         <Route path="/checkout" component={Checkout} />
         <Route path="/article" component={Article} />
         <Route path="/example" component={Example} />
-        <Route path="/live-stream" component={Live} />
+        <Route path="/live-stream/:id" component={Live} />
         <Route path="/list-room" component={ListRoom} />
       </Router>
     </div>

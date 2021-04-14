@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
 
 import Header from 'pages/jeketi/Header';
-import Hero from 'parts/Hero'
 import MostPicked from 'parts/MostPicked'
-import Categories from 'parts/Categories'
-import Testimoni from 'parts/Testimoni'
-import Footer from 'parts/Footer'
-
-import landingPage from 'json/landingPage.json'
+import Footer from 'pages/jeketi/Footer';
 
 export default class LandingPage extends Component {
   constructor(props) {
@@ -16,17 +11,14 @@ export default class LandingPage extends Component {
   }
 
   componentDidMount() {
-    document.title = 'Staycation'
+    document.title = 'JKT48 Showroom'
   }
 
   render() {
     return (
       <>
         <Header {...this.props} />
-          {/* <Hero refMostPicked={this.refMostPicked} data={landingPage.hero} /> */}
-          <MostPicked refMostPicked={this.refMostPicked} data={landingPage.mostPicked} />
-          {/* <Categories data={landingPage.categories} /> */}
-          {/* <Testimoni data={landingPage.testimonial} /> */}
+          <MostPicked refMostPicked={this.refMostPicked} />
         <Footer />
       </>
     )

@@ -1,8 +1,18 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from 'react';
 import Fade from 'react-reveal/Fade';
 import Button from "elements/Button";
 
-export default function MostPicked({data, refMostPicked}) {
+export default function MostPicked({refMostPicked}) {
+  const [room, setRoom] = useState([]);
+
+  useEffect(() => {
+    axios.get('/room_status_list.json').then((res) => {
+      const listRoom = res.data;
+      setRoom(listRoom);
+    })
+  });
+  
   return (
     <section className="container" ref={refMostPicked}>
       <Fade bottom>
@@ -14,13 +24,19 @@ export default function MostPicked({data, refMostPicked}) {
           />
         </div>
         <div className="container-grid">
-          {data.map((item, idx) => (
+          {room.map((item, idx) => (
+            item.name.includes("JKT48") && item.is_live === true &&
             <div key={idx} className={`item ${idx === 0 ? "column-12 row-1" : "column-12 row-1"}`}>
-              <Fade bottom delay={500 * idx}>
+              <Fade bottom>
                 <div className="card card-featured">
+                  {item.is_live === true && 
+                    <div className="tag" style={{backgroundColor: 'teal'}}>
+                      Live <span className="font-weight-light">Now</span>
+                    </div>
+                  }
                   <figure className="img-wrapper">
                     <img
-                      src={item.imageUrl}
+                      src={item.image_url}
                       alt={item.name}
                       className="img-cover"
                     />
@@ -29,7 +45,38 @@ export default function MostPicked({data, refMostPicked}) {
                     <Button
                       type="link"
                       className="strecthed-link d-block text-white"
-                      href={`live-stream`}
+                      href={`live-stream/${item.id}`}
+                    >
+                      <h5>{item.name}</h5>
+                    </Button>
+                  </div>
+                </div>
+              </Fade>
+            </div>
+          ))}
+
+          {room.map((item, idx) => (
+            item.name.includes("JKT48") && 
+            <div key={idx} className={`item ${idx === 0 ? "column-12 row-1" : "column-12 row-1"}`}>
+              <Fade bottom>
+                <div className="card card-featured">
+                  {item.is_live === true && 
+                    <div className="tag" style={{backgroundColor: 'teal'}}>
+                      Live <span className="font-weight-light">Now</span>
+                    </div>
+                  }
+                  <figure className="img-wrapper">
+                    <img
+                      src={item.image_url}
+                      alt={item.name}
+                      className="img-cover"
+                    />
+                  </figure>
+                  <div className="meta-wrapper">
+                    <Button
+                      type="link"
+                      className="strecthed-link d-block text-white"
+                      href={`live-stream/${item.id}`}
                     >
                       <h5>{item.name}</h5>
                     </Button>
