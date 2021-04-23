@@ -23,7 +23,7 @@ export default function Live(props) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    window.document.title = 'JKT48 Showroom'
+    window.document.title = 'Live Stream';
     window.scrollTo(0, 0);
 
     setLoading(true)
@@ -44,36 +44,36 @@ export default function Live(props) {
   return (
     <>
       <Header {...props} />
-      <Container>
-        <Row>
-          <Col lg="8">
-            {url ? url.slice(0, 1).map((item, idx) => (
-              <Stream roomId={roomId} key={idx} url={item.url} />
-            )) : !url ? (
-              <Profile roomId={roomId} setRoomId={setRoomId} isLoad={loading} />
-            ) : menu === 'live' ? (
-              <Stream url="" />
-            ) : 'null'}
-          </Col>
-          <Col lg="4">
-            <Menu setMenu={setMenu} isLive={url} />
-            {menu === 'room' ? (
-              <RoomList setRoomId={setRoomId} />
-            ) : menu === 'chat' ? (
-              loading ? <Loading /> :
-              <LiveChat roomId={roomId} />
-            ) : menu === 'rank' ? (
-              loading ? <Loading /> :
-              <StageUser roomId={roomId} />
-            ) : menu === 'gift' ? (
-              loading ? <Loading /> :
-              <Gift roomId={roomId} />
-            ): (
-              <Setlist />
-            )}
-          </Col>
-        </Row>
-      </Container>
+        <Container>
+          <Row>
+            <Col lg="8">
+              {url ? url.slice(0, 1).map((item, idx) => (
+                <Stream roomId={roomId} key={idx} url={item.url} />
+              )) : !url ? (
+                <Profile roomId={roomId} setRoomId={setRoomId} isLoad={loading} />
+              ) : (
+                <Stream url="" />
+              )}
+            </Col>
+            <Col lg="4">
+              <Menu setMenu={setMenu} isLive={url} />
+              {menu === 'room' ? (
+                <RoomList setRoomId={setRoomId} />
+              ) : menu === 'chat' ? (
+                loading ? <Loading /> :
+                <LiveChat roomId={roomId} />
+              ) : menu === 'rank' ? (
+                loading ? <Loading /> :
+                <StageUser roomId={roomId} />
+              ) : menu === 'gift' ? (
+                loading ? <Loading /> :
+                <Gift roomId={roomId} />
+              ): (
+                <Setlist />
+              )}
+            </Col>
+          </Row>
+        </Container>
       <Footer />
     </>
   )

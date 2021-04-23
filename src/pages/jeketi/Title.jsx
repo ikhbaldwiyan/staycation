@@ -20,13 +20,18 @@ export default function Title({ roomId }) {
 
   return (
     <h4>
-      <b className="mr-1 text-gray-800">{profile && profile.room_url_key.slice(6)} JKT48 |</b>
-      {title}
+      <b className="mr-1 text-gray-800">
+        {!profile && ''}
+        {profile && profile.room_url_key.includes('JKT48') ? profile.room_url_key.slice(6) + ' ' + 'JKT48' : profile.room_name} |
+      </b>
+      <span className="font-weight-light text-white">{title}</span>
       <Button color="info" className="ml-2">
-        <img src="https://pbs.twimg.com/media/Erx2IE1VQAEqdZD?format=png&name=small"
+        <img
+          src="https://pbs.twimg.com/media/Erx2IE1VQAEqdZD?format=png&name=small"
           width="15"
           className="mb-1 mr-1"
-        /> {profile.view_num}
+        />{" "}
+        {profile.view_num}
       </Button>
     </h4>
   )
