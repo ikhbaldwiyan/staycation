@@ -25,7 +25,7 @@ class LandingPage extends Component {
   render() {
     const { page } = this.props;
 
-    if (!page.hasOwnProperty("landingPage")) return null;
+    if (!page.hasOwnProperty("landingPage")) return <Header {...this.props} />;
 
     return (
       <>

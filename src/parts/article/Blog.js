@@ -8,12 +8,12 @@ export default function Blog({ data }) {
   return data.map((article, idx) => (
     <section className="container">
       <div className="container-grid sm">
-        <Fade bottom delay={300 * idx}>
+        <Fade bottom>
           <div className="item column-4 mr-3">
             <div className="card h-100">
-              <div className="tag-article">{article.category}</div>
+              <div className="tag-article">{article.tag}</div>
               <figure className="img-article">
-                <img className="img-cover" src={article.url} alt={data.id} />
+                <img className="img-cover" src={article.thumb} alt={idx} />
               </figure>
             </div>
           </div>
@@ -21,18 +21,12 @@ export default function Blog({ data }) {
             <h3>{article.title}</h3>
             <span className="text-gray-500">
               <img src={IconDate} width={18} className="ml-2 mb-1" alt="date" />{" "}
-              {article.author}, {article.published}
+              {article.author} |  {article.time}
             </span>
-            <p className="mt-3 text-gray-700">
+            <p className="mt-3">
               {ReactHtmlParser(article.desc)}
             </p>
-            <p className="mt-3 text-gray-700">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae
-              assumenda, fuga odio deleniti amet laboriosam rem labore nulla
-              eveniet voluptatum pariatur unde sunt fugit ipsa recusandae
-              provident ut accusantium voluptas?
-            </p>
-            <Button type="link" className="btn" isPrimary>
+            <Button type="link" href={`detail/${article.key}`} className="btn" isPrimary>
               Read More
             </Button>
           </div>

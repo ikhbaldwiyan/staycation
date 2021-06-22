@@ -7,6 +7,7 @@ import DetailPage from 'pages/DetailPage';
 import Checkout from 'pages/Checkout';
 import Example from 'pages/Example';
 import Article from 'pages/Article';
+import DetailBlog from 'pages/DetailBlog';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/checkout" component={Checkout} />
         <Route path="/article" component={Article} />
         <Route path="/example" component={Example} />
+        <Route path="/detail/:id" component={DetailBlog} />
       </Router>
     </div>
   );
