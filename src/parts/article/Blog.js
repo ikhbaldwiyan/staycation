@@ -3,6 +3,7 @@ import Fade from "react-reveal/Fade";
 import ReactHtmlParser from "react-html-parser";
 import Button from "elements/Button";
 import IconDate from "assets/images/icons/icon_cities.svg";
+import { Link } from "react-router-dom";
 
 export default function Blog({ data }) {
   return data.map((article, idx) => (
@@ -18,10 +19,12 @@ export default function Blog({ data }) {
             </div>
           </div>
           <div className="item column-6">
-            <h3>{article.title}</h3>
+            <Link className="text-gray-900" to={`detail/${article.key}`} style={{textDecoration: 'none'}}>
+              <h3>{article.title}</h3>
+            </Link>
             <span className="text-gray-500">
-              <img src={IconDate} width={18} className="ml-2 mb-1" alt="date" />{" "}
-              {article.author} |  {article.time}
+              <img src={IconDate} width={18} className="ml-1 mb-1" alt="date" />{" "}
+              <span className="text-gray-700">{article.author}</span> |  {article.time}
             </span>
             <p className="mt-3">
               {ReactHtmlParser(article.desc)}
