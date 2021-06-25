@@ -21,15 +21,15 @@ function DetailBlog(props) {
         const data = res.data.results;
         setDetail(data);
       });
-    window.document.title = 'Detail Artikel';
-
-    setLoading(true)
-    setTimeout(() => {
-      detail && setLoading(false)
-    }, 1000)
-
-  }, [slug, setDetail]);
-
+      setTimeout(() => {
+        setLoading(false)
+      }, 500)
+    }, [slug]);
+    
+  useEffect(() => {
+    window.document.title = detail.title;
+  }, [detail.title])
+    
   let description = [];
 
   if(detail.content) {
@@ -79,7 +79,7 @@ function DetailBlog(props) {
                 </Fade>
                 <div className="container-grid sm mt-3">
                   <div className="item column-8">
-                    <div className="card h-100">
+                    <div className="card">
                       <figure className="img-wrapper">
                         <img
                           className="img-cover"

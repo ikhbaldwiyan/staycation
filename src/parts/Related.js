@@ -17,7 +17,7 @@ function Related({ categories, setLoading }) {
       const data = res.data;
       setRelated(data)
     });
-  }, [category]);
+  }, [api]);
 
   useEffect(() => {
     if (category === 'game news') {
@@ -26,13 +26,15 @@ function Related({ categories, setLoading }) {
       setCategory('e-sport')
     } else if(category === 'console') {
       setCategory('console-game')
-    } else if (category === 'gadget news' && category === 'tech review') {
+    } else if (category === 'gadget news' || category === 'tech review') {
       setCategory('pc')
-    } else if (category === 'tech' || category === 'tech recommendations' || category === 'setup' || category === 'tech news' || category === 'tech review') {
+    } else if (category.includes('tech')) {
       setCategory('')
       setPath('tech')
+    } else if (category === 'review') {
+      setCategory('review')
     }
-  })
+  }, [category])
 
   return (
     <section className="container">
